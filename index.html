@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BossOps 电商运营工作台</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&family=Quicksand:wght@400;700&family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 字体栈定义 */
+            --font-round: "Quicksand", "ui-rounded", "Hiragino Maru Gothic ProN", "PingFang SC", "Microsoft YaHei", sans-serif;
+            --font-boss: 'ZCOOL QingKe HuangYou', cursive;
+            --font-tech: 'Orbitron', sans-serif;
+        }
+        
+        body { 
+            font-family: var(--font-round); 
+            background: #eff1f5; /* 调深环境色，使内容卡片更凸显 */
+            margin: 0;
+            overflow: hidden;
+            color: #1e293b;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 极光流转背景 - 增加色彩深度与对比度 */
+        @keyframes aurora-move {
+            0% { transform: translate(-20%, -20%) rotate(0deg) scale(1); }
+            50% { transform: translate(20%, 15%) rotate(180deg) scale(1.4); }
+            100% { transform: translate(-20%, -20%) rotate(360deg) scale(1); }
+        }
+
+        .aurora-container {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+            background: #e2e8f0; /* 背景基调 */
+        }
+
+        .aurora-blob {
+            position: absolute;
+            width: 110vw;
+            height: 110vw;
+            border-radius: 50%;
+            filter: blur(140px);
+            opacity: 0.7; /* 提高饱和度 */
+            mix-blend-mode: soft-light;
+            animation: aurora-move 20s infinite ease-in-out;
+        }
+
+        .blob-lavender {
+            background: radial-gradient(circle, #cbd5e1 0%, transparent 70%);
+            top: -40%;
+            left: -20%;
+        }
+
+        .blob-skyblue {
+            background: radial-gradient(circle, #bae6fd 0%, transparent 70%);
+            bottom: -40%;
+            right: -20%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+        }
+
+        .blob-pink {
+            background: radial-gradient(circle, #fecaca 0%, transparent 70%);
+            top: 40%;
+            right: 20%;
+            animation-duration: 25s;
+            animation-delay: -10s;
+        }
+
+        /* 极致玻璃拟态 - 增强边缘定义 */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1.5px solid rgba(255, 255, 255, 0.7);
+            box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 卡片阴影与层次 */
+        .card-container {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px -5px rgba(0, 0, 0, 0.05);
+        }
+
+        /* iOS 按钮反馈 */
+        .ios-btn {
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .ios-btn:active {
+            transform: scale(0.95);
+            opacity: 0.85;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { 
+            background: rgba(0,0,0,0.15); 
+            border-radius: 10px;
+        }
+
+        .font-boss { font-family: var(--font-boss); }
+        .font-tech { font-family: var(--font-tech); }
+        .num-font { font-family: var(--font-round); font-variant-numeric: tabular-nums; }
+    </style>
+    <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "recharts": "https://esm.sh/recharts@^3.6.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="aurora-container">
+        <div class="aurora-blob blob-lavender"></div>
+        <div class="aurora-blob blob-skyblue"></div>
+        <div class="aurora-blob blob-pink"></div>
+    </div>
+    <div id="root"></div>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

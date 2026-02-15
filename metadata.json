@@ -1,0 +1,7 @@
+{
+  "name": "BossOps Ecommerce Workbench",
+  "description": "A comprehensive ecommerce operations management platform featuring a 14-day lifecycle tracker, credit system, public product pool, and team performance analytics for Tmall and TaoFactory operators.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
