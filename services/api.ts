@@ -6,7 +6,8 @@
 
 import { Member, Product, Target, CreditRecord } from '../types';
 
-const BASE_URL = '/api';
+// 本地开发走 Vite 代理 (/api)，生产环境通过 VITE_API_BASE_URL 指向 Render 后端
+const BASE_URL = import.meta.env.VITE_API_BASE_URL || '/api';
 
 // 认证 token — 由 useAuth Hook 设置
 let authToken = '';
