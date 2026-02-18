@@ -53,6 +53,7 @@ class SupabaseRestClient:
             params=params or {},
             json=json_data,
             timeout=15.0,
+            verify=False  # Disable SSL verification to avoid proxy/firewall issues
         )
         resp.raise_for_status()
         if resp.status_code == 204 or not resp.text:
